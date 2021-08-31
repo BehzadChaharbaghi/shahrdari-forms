@@ -1,14 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { authApi } from '../../../api/api_auth';
 import './Login.css'
 import { Col, Container, Row } from 'react-bootstrap';
+import { authApi } from './../../api/api_auth';
 
+const url = "login"
 const Login = () => {
-
-    const url="login"
     const [nationalCode, setNationalCode] = useState()
     const [password, setPassword] = useState();
 
@@ -17,48 +16,46 @@ const Login = () => {
         if (!user.password) return "باید حتما پسورد وارد بشه";
     }
     const handleLogin = () => {
-        console.log(nationalCode);
-        console.log(password);
-
-        const user = {
+        const infoLogin = {
             nationalCode: nationalCode,
             password: password
         };
-
-        const error = validateLogin(user)
-        if (error)
-            return console.warn(error);
-            authApi(user, url, (isOK, data) =>{
-                if( isOK )
-                    console.log(isOK);
-            })
+        // handle error
+        const error = validateLogin(infoLogin)
+        if (error) return console.warn(error);
+        // handle Api
+        authApi(infoLogin, url, (isOK, data) => {
+            if (!isOK) return console.log(data);
+            console.log(data);
+        })
     }
 
     return (
-        <Container >
-            <h4 className="text-center mt-5 p-3 m-auto">صفحه ورود</h4>
-            <Row className="align-self-center p-2 bd-highlight col-example">
+        <Container>
+            <h4 className="mt-5 p-3 text-center">صفحه ورود</h4>
+            <Row className="align-self-center p-2 bd-highlight">
                 <Col className="m-auto shadow-lg p-4" md={8} >
-                    <Form>
-                        <Form.Group className="mb-4" controlId="nationalCode">
+                    <Form dir="rtl" autoComplete="on">
+                        <Form.Group className="mb-4" controlId="fromBasicNationalCode">
                             <Form.Label>کد ملی</Form.Label>
                             <Form.Control
                                 value={nationalCode}
                                 onChange={(e) => setNationalCode(e.target.value)}
-                                type={"number"}
-                                placeholder="کد ملی خود را وارد کنید"
+                                type="number"
+                                placeholder="کد ملی خود را وارد کنید ..."
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="password" >
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>رمز عبور</Form.Label>
                             <Form.Control
-                                value={password}
+                                // value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                autoComplete type={"password"}
-                                placeholder="رمز عبور خود را وارد کنید"
+                                autoComplete='on'
+                                type="password"
+                                placeholder="رمز عبور خود را وارد کنید ..."
                             />
                         </Form.Group>
-                        <Button className={"btn"} variant="primary" onClick={() => handleLogin()}>
+                        <Button variant="primary" style={{ width: '100%' }} onClick={() => handleLogin()}>
                             ورود
                         </Button>
                     </Form>
