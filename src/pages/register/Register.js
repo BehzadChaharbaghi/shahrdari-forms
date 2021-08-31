@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { authApi } from './../../api/api_auth';
 
+const url = "register"
 const Register = () => {
     // variable and states
-    const url = "register"
-    const [username, setUserName] = useState();
+    const [nationalCode, setNationalCode] = useState();
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [password, setPassword] = useState();
     const [confPassword, setConfPassword] = useState();
     // validate
     const validateRegister = (user) => {
-        if (!user.username) return "لطفا کد ملی خود را وارد کنید";
+        if (!user.nationalCode) return "لطفا کد ملی خود را وارد کنید";
         if (!user.firstName) return "لطفا نام خود را وارد کنید";
         if (!user.lastName) return "لطفا نام خانوادگی خود را وارد کنید";
         if (!user.password) return "لطفا رمز عبور را وارد کنید";
@@ -22,7 +22,7 @@ const Register = () => {
     // register function
     const handleRegister = () => {
         const infoRegister = {
-            username: username,
+            nationalCode: nationalCode,
             firstName: firstName,
             lastName: lastName,
             password: password,
@@ -42,11 +42,11 @@ const Register = () => {
         <Container>
             <h1 className="mt-5 p-3 text-center rounded">صفحه ثبت نام</h1>
             <Row className="mt-5 shadow-lg">
-                <Col lg={5} md={6} sm={12} className="p-5 m-auto rounded-lg">
+                <Col lg={9} md={6} sm={12} className="p-5 m-auto rounded-lg">
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="fromBasicNationalCode">
                             <Form.Label>کد ملی</Form.Label>
-                            <Form.Control type="number" placeholder="کد ملی خود را وارد کنید ..." onChange={(e) => setUserName(e.target.value)} />
+                            <Form.Control type="number" placeholder="کد ملی خود را وارد کنید ..." onChange={(e) => setNationalCode(e.target.value)} />
                             <Form.Text className="text-muted">
                                 ما هیچوقت کد ملی شما را با دیگران به اشتراک نمیگداریم!
                             </Form.Text>
