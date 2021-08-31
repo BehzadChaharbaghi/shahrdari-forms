@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { AuthProvider } from './context/AuthContext';
+
 import VerifyTwoFactor from './pages/verify-two-factor/VerifyTwoFactor';
 import Register from './pages/register/Register';
 
