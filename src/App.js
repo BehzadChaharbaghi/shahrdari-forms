@@ -6,6 +6,7 @@ import { AuthProvider } from './context/AuthContext';
 
 import VerifyTwoFactor from './pages/verify-two-factor/VerifyTwoFactor';
 import Register from './pages/register/Register';
+import Login from './pages/login/Login';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path={"/Register"} component={Register} />
+          <Route exact path={"/Login"} component={Login} />
           <Route path={"/VerifyTwoFactor"} component={VerifyTwoFactor} />
         </Switch>
       </BrowserRouter>
