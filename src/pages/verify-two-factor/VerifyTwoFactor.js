@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { authApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api_auth';
 
 const url = "VerifyTwoFactor"
 const VerifyTwoFactor = () => {
@@ -19,7 +19,7 @@ const VerifyTwoFactor = () => {
         const error = validateCode(infoCode);
         if (error) return console.warn(error);
         // handle Api
-        authApi(infoCode, url, (isOK, data) => {
+        AuthApi(infoCode, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
         })

@@ -1,6 +1,6 @@
 import { getAxiosInstanceApi } from "./api";
 
-export const authApi = (user, url, callback) => {
+export const AuthApi = (user, url, callback) => {
   // const userInfo = useAuthDispatch();
   console.log(JSON.stringify(user));
 

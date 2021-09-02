@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import './Login.css'
 import { Col, Container, Row } from 'react-bootstrap';
-import { authApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api_auth';
 import { Link } from 'react-router-dom';
 
 const url = "login"
@@ -27,7 +27,7 @@ const Login = () => {
         const error = validateLogin(infoLogin)
         if (error) return console.warn(error);
         // handle Api
-        authApi(infoLogin, url, (isOK, data) => {
+        AuthApi(infoLogin, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
         })
@@ -38,7 +38,7 @@ const Login = () => {
         <Container>
             <h4 className="mt-5 p-3 text-center rounded">صفحه ورود</h4>
             <Row className="mt-5 shadow-lg">
-                <Col lg={9} md={6} sm={12} className="m-auto p-5"  >
+                <Col lg={9} md={8} sm={12} className="m-auto p-5"  >
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-4" controlId="fromBasicNationalCode">
                             <Form.Label>کد ملی</Form.Label>

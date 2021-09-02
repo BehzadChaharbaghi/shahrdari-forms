@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { authApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api_auth';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const url = "ResetPassword"
@@ -23,7 +23,7 @@ const ResetPassword = () => {
         const error = validateCode(infoNewPassword);
         if (error) return console.warn(error);
         // handle Api
-        authApi(infoNewPassword, url, (isOK, data) => {
+        AuthApi(infoNewPassword, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
         })
