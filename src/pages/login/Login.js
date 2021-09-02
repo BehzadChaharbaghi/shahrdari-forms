@@ -5,9 +5,12 @@ import Button from "react-bootstrap/Button";
 import './Login.css'
 import { Col, Container, Row } from 'react-bootstrap';
 import { authApi } from './../../api/api_auth';
+import { Link } from 'react-router-dom';
 
 const url = "login"
+
 const Login = () => {
+
     const [nationalCode, setNationalCode] = useState()
     const [password, setPassword] = useState();
 
@@ -31,10 +34,11 @@ const Login = () => {
     }
 
     return (
+
         <Container>
-            <h4 className="mt-5 p-3 text-center">صفحه ورود</h4>
-            <Row className="align-self-center p-2 bd-highlight">
-                <Col className="m-auto shadow-lg p-4" md={8} >
+            <h4 className="mt-5 p-3 text-center rounded">صفحه ورود</h4>
+            <Row className="mt-5 shadow-lg">
+                <Col lg={9} md={6} sm={12} className="m-auto p-5"  >
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-4" controlId="fromBasicNationalCode">
                             <Form.Label>کد ملی</Form.Label>
@@ -45,7 +49,7 @@ const Login = () => {
                                 placeholder="کد ملی خود را وارد کنید ..."
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicPassword">
                             <Form.Label>رمز عبور</Form.Label>
                             <Form.Control
                                 // value={password}
@@ -55,7 +59,8 @@ const Login = () => {
                                 placeholder="رمز عبور خود را وارد کنید ..."
                             />
                         </Form.Group>
-                        <Button variant="primary" style={{ width: '100%' }} onClick={() => handleLogin()}>
+                        <Link to={"/ForgetPassword"} className="link"><p>فراموشی رمز عبور</p></Link>
+                        <Button className="mt-4" variant="primary" style={{ width: '100%' }} onClick={() => handleLogin()}>
                             ورود
                         </Button>
                     </Form>
