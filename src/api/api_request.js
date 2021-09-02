@@ -1,11 +1,11 @@
 import { getAxiosInstanceApi } from "./api";
 
-export const authApi = (user, url, callback) => {
+export const authApi = (req, url, callback) => {
   // const userInfo = useAuthDispatch();
-  console.log(JSON.stringify(user));
+  console.log(JSON.stringify(req));
 
   getAxiosInstanceApi()
-    .post(`Account/${url}`, JSON.stringify(user))
+    .post(`Account/${url}`, JSON.stringify(req))
     .then((response) => {
       const data = response.data;
       console.log(data);
