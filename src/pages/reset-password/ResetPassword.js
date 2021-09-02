@@ -33,7 +33,7 @@ const ResetPassword = () => {
         <Container>
             <h1 className="mt-5 p-3 text-center rounded">تغییر رمز عبور</h1>
             <Row className="mt-5 shadow-lg">
-                <Col lg={9} md={6} sm={12} className="p-5 m-auto rounded-lg">
+                <Col lg={9} md={8} sm={12} className="p-5 m-auto rounded-lg">
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>رمزعبور جدید</Form.Label>
