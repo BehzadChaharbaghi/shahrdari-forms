@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { authApi } from './../../api/api_auth';
 
+const url = "VerifyTwoFactor"
 const VerifyTwoFactor = () => {
     // variable and states
-    const url = "VerifyTwoFactor"
     const [code, setCode] = useState();
     // validate
     const validateCode = (user) => {
