@@ -28,7 +28,7 @@ const VerifyTwoFactor = () => {
         <Container >
             <h1 className="mt-5 p-3 text-center rounded">تایید دو مرحله ای</h1>
             <Row className="mt-5 shadow-lg">
-                <Col lg={5} md={6} sm={12} className="p-5 m-auto rounded-lg">
+                <Col lg={9} md={8} sm={12} className="p-5 m-auto rounded-lg">
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="fromBasicNationalCode">
                             <Form.Label>کد</Form.Label>
@@ -37,7 +37,7 @@ const VerifyTwoFactor = () => {
                                 کد برای شماره موبایل شما پیامک شد
                             </Form.Text>
                         </Form.Group>
-                        <Button className="mt-5" variant="primary" style={{ width: '100%' }} onClick={() => handleCode()}>
+                        <Button className="mt-5" variant="warning" style={{ width: '100%' }} onClick={() => handleCode()}>
                             ثبت کد
                         </Button>
                     </Form>
