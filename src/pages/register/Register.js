@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { AuthApi } from './../../api/api_auth';
+import { setUserInfo, useAuthDispatch } from '../../context/AuthContext';
+import { AuthApi } from '../../api/api-auth';
+import Input from './../../components/UI/Input/Input';
 
 const url = "Register"
 const Register = () => {
@@ -11,6 +13,8 @@ const Register = () => {
     const [lastName, setLastName] = useState();
     const [password, setPassword] = useState();
     const [confPassword, setConfPassword] = useState();
+    // context state
+    const userDispatch = useAuthDispatch()
     // validate
     const validateRegister = (user) => {
         if (!user.nationalCode) return "لطفا کد ملی خود را وارد کنید";
@@ -38,6 +42,7 @@ const Register = () => {
         AuthApi(infoRegister, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
+            setUserInfo(userDispatch, data)
         })
     }
 
@@ -49,30 +54,30 @@ const Register = () => {
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="fromBasicNationalCode">
                             <Form.Label>کد ملی</Form.Label>
-                            <Form.Control type="number" placeholder="کد ملی خود را وارد کنید ..." onChange={(e) => setNationalCode(e.target.value)} />
+                            <Input inputtype="input" type="number" placeholder="کد ملی خود را وارد کنید ..." onChange={(e) => setNationalCode(e.target.value)} />
                             <Form.Text className="text-muted">
                                 ما هیچوقت کد ملی شما را با دیگران به اشتراک نمیگداریم!
                             </Form.Text>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="fromBasicMobile">
                             <Form.Label>موبایل</Form.Label>
-                            <Form.Control type="tel" placeholder="شماره موبایل خود را وارد کنید ..." onChange={(e) => setMobile(e.target.value)} />
+                            <Input inputtype="input" type="tel" placeholder="شماره موبایل خود را وارد کنید ..." onChange={(e) => setMobile(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="fromBasicFirstName">
                             <Form.Label>نام</Form.Label>
-                            <Form.Control type="text" placeholder="نام خود را وارد کنید ..." onChange={(e) => setFirstName(e.target.value)} />
+                            <Input inputtype="input" type="text" placeholder="نام خود را وارد کنید ..." onChange={(e) => setFirstName(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="fromBasicLastName">
                             <Form.Label>نام خانوادگی</Form.Label>
-                            <Form.Control type="text" placeholder="نام خانوادگی خود را وارد کنید ..." onChange={(e) => setLastName(e.target.value)} />
+                            <Input inputtype="input" type="text" placeholder="نام خانوادگی خود را وارد کنید ..." onChange={(e) => setLastName(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>رمز عبور</Form.Label>
-                            <Form.Control type="password" autoComplete="on" placeholder="رمز عبور خود را وارد کنید ..." onChange={(e) => setPassword(e.target.value)} />
+                            <Input inputtype="input" type="password" autoComplete="on" placeholder="رمز عبور خود را وارد کنید ..." onChange={(e) => setPassword(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicConfPassword">
                             <Form.Label>تکرار رمز عبور</Form.Label>
-                            <Form.Control type="password" autoComplete="on" placeholder="بار دیگر رمز عبور خود را وارد کنید ..." onChange={(e) => setConfPassword(e.target.value)} />
+                            <Input inputtype="input" type="password" autoComplete="on" placeholder="بار دیگر رمز عبور خود را وارد کنید ..." onChange={(e) => setConfPassword(e.target.value)} />
                         </Form.Group>
                         <Button className="mt-5" variant="primary" style={{ width: '100%' }} onClick={() => handleRegister()}>
                             ثبت نام

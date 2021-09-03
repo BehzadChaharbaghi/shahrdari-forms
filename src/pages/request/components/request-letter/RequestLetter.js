@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { RequestLetterApi, GetRequestType } from '../../../../api/api_request';
-import SelectList from '../../../../components/select-list/SelectList';
+import { RequestLetterApi, GetRequestType } from '../../../../api/api-request';
 
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import opacity from "react-element-popper/animations/opacity"
+import SelectList from '../../../../components/UI/Select/SelectList';
+import Input from './../../../../components/UI/Input/Input';
 
 const url = "Create"
 const RequestLetter = () => {
@@ -60,11 +61,11 @@ const RequestLetter = () => {
                         <SelectList data={requestType} />
                         <Form.Group className="mb-3" controlId="formBasicLetterNumber">
                             <Form.Label>شماره نامه</Form.Label>
-                            <Form.Control type="text" placeholder="لطفا شماره نامه را وارد کنید ..." onChange={(e) => setLettetNumber(e.target.value)} />
+                            <Input inputtype="input" type="text" placeholder="لطفا شماره نامه را وارد کنید ..." onChange={(e) => setLettetNumber(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicLetterReference">
                             <Form.Label>مرجع صدور نامه</Form.Label>
-                            <Form.Control type="tel" placeholder="لطفا مرجع صدور نامه را وارد کنید ..." onChange={(e) => setLetterReference(e.target.value)} />
+                            <Input inputtype="input" type="tel" placeholder="لطفا مرجع صدور نامه را وارد کنید ..." onChange={(e) => setLetterReference(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicLetterDate">
                             <Form.Label style={{ display: "block" }}>تاریخ</Form.Label>
@@ -80,7 +81,7 @@ const RequestLetter = () => {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicDescription">
                             <Form.Label>توضیحات درخواست </Form.Label>
-                            <Form.Control as="textarea" rows={3} type="text" autoComplete="on" placeholder="توضیحات درخواست خود را وارد کنید ..." onChange={(e) => setDescription(e.target.value)} />
+                            <Input inputtype="textarea" rows={3} type="text" autoComplete="on" placeholder="توضیحات درخواست خود را وارد کنید ..." onChange={(e) => setDescription(e.target.value)} />
                         </Form.Group>
                         <Button className="mt-5" variant="success" style={{ width: '100%' }} onClick={() => handleLetterRequest()}>
                             ثبت درخواست نامه

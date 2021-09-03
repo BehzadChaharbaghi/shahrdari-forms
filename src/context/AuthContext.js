@@ -8,7 +8,8 @@ var AuthDispatchContext = React.createContext();
 function authReducer(state, action) {
     switch (action.type) {
         case "SET_USER_INFO":
-            return { ...state, commentText: action.payload };
+            const action = action.payload
+            return { ...state, info: { nationalCode: action.nationalCode, token: action.token } };
         default: {
             throw new Error(`Unhandled action type: ${action.type}`);
         }
@@ -17,9 +18,9 @@ function authReducer(state, action) {
 
 function AuthProvider({ children }) {
     var [state, dispatch] = React.useReducer(authReducer, {
-        userInfo: {
-            nationalCode:0,
-            token:0
+        info: {
+            nationalCode: 0,
+            token: 0
         },
     });
     return (
@@ -56,9 +57,13 @@ export {
 
 // ###########################_SetStates_################################
 function setUserInfo(dispatch, userInfo) {
+    const info = {
+        nationalCode: userInfo.nationalCode,
+        token: userInfo.token
+    }
     dispatch({
         type: "SET_USER_INFO",
-        payload: userInfo,
+        payload: info,
     });
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { AuthApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api-auth';
+import Input from './../../components/UI/Input/Input';
 
 const url = "VerifyTwoFactor"
 const VerifyTwoFactor = () => {
@@ -32,7 +33,7 @@ const VerifyTwoFactor = () => {
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="fromBasicNationalCode">
                             <Form.Label>کد</Form.Label>
-                            <Form.Control type="number" placeholder="کد پیامک شده را وارد کنید ..." onChange={(e) => setCode(e.target.value)} />
+                            <Input inputtype="input" type="number" placeholder="کد پیامک شده را وارد کنید ..." onChange={(e) => setCode(e.target.value)} />
                             <Form.Text className="text-muted">
                                 کد برای شماره موبایل شما پیامک شد
                             </Form.Text>

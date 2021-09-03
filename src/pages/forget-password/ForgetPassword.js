@@ -4,8 +4,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, Container, Row } from 'react-bootstrap';
 
-import { AuthApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api-auth';
 import { Link } from 'react-router-dom';
+import Input from './../../components/UI/Input/Input';
 
 const url = "forgetPassword"
 const ForgetPassword = () => {
@@ -40,7 +41,8 @@ const ForgetPassword = () => {
                 <Col lg={9} md={8} sm={12} className="m-auto p-5"  >
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-4" controlId="fromBasicNationalCode">
-                            <Form.Control
+                            <Input
+                                inputtype="input"
                                 value={nationalCode}
                                 onChange={(e) => setNationalCode(e.target.value)}
                                 type="number"

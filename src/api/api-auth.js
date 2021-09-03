@@ -1,10 +1,8 @@
-import { getAxiosInstanceApi } from "./api";
+import { instanceAxios } from "./base-api";
 
-export const AuthApi = (user, url, callback) => {
-  // const userInfo = useAuthDispatch();
+export const AuthApi = async (user, url, callback) => {
   console.log(JSON.stringify(user));
-
-  getAxiosInstanceApi()
+  await instanceAxios()
     .post(`Account/${url}`, JSON.stringify(user))
     .then((response) => {
       const data = response.data;

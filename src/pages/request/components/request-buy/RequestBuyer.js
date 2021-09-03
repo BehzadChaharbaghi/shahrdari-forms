@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { RequestBuyerApi, GetRequestType } from '../../../../api/api_request';
-import SelectList from '../../../../components/select-list/SelectList';
+import { RequestBuyerApi, GetRequestType } from '../../../../api/api-request';
+import Input from '../../../../components/UI/Input/Input';
+import SelectList from '../../../../components/UI/Select/SelectList';
 
 const url = "Create"
 const RequestBuyer = () => {
@@ -55,19 +57,19 @@ const RequestBuyer = () => {
                         <SelectList data={requestType} />
                         <Form.Group className="mb-3" controlId="formBasicBuyerName">
                             <Form.Label>نام خریدار</Form.Label>
-                            <Form.Control type="text" placeholder="لطفا نام خود را وارد کنید ..." onChange={(e) => setBuyerName(e.target.value)} />
+                            <Input inputtype="input" type="text" placeholder="لطفا نام خود را وارد کنید ..." onChange={(e) => setBuyerName(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicBuyerMobile">
                             <Form.Label>موبایل خریدار</Form.Label>
-                            <Form.Control type="tel" placeholder="لطفا شماره موبایل خود را وارد کنید ..." onChange={(e) => setBuyerMobile(e.target.value)} />
+                            <Input inputtype="input" type="tel" placeholder="لطفا شماره موبایل خود را وارد کنید ..." onChange={(e) => setBuyerMobile(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicBuyerCode">
                             <Form.Label>کد خریدار</Form.Label>
-                            <Form.Control type="number" placeholder="لطفا کد خرید را وارد کنید ..." onChange={(e) => setBuyerCode(e.target.value)} />
+                            <Input inputtype="input" type="number" placeholder="لطفا کد خرید را وارد کنید ..." onChange={(e) => setBuyerCode(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicDescription">
                             <Form.Label>توضیحات درخواست خرید</Form.Label>
-                            <Form.Control as="textarea" rows={3} type="text" autoComplete="on" placeholder="توضیحات درخواست خود را وارد کنید ..." onChange={(e) => setDescription(e.target.value)} />
+                            <Input inputtype="input" rows={3} type="text" autoComplete="on" placeholder="توضیحات درخواست خود را وارد کنید ..." onChange={(e) => setDescription(e.target.value)} />
                         </Form.Group>
                         <Button className="mt-5" variant="success" style={{ width: '100%' }} onClick={() => handleBuyerRequest()}>
                             ثبت درخواست خرید

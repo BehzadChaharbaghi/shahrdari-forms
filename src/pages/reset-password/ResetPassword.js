@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { AuthApi } from './../../api/api_auth';
+import { AuthApi } from './../../api/api-auth';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import Input from './../../components/UI/Input/Input';
 
 const url = "ResetPassword"
 const ResetPassword = () => {
@@ -37,11 +38,11 @@ const ResetPassword = () => {
                     <Form dir="rtl" autoComplete="on">
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>رمزعبور جدید</Form.Label>
-                            <Form.Control type="password" autoComplete="on" placeholder="رمز عبور جدید خود را وارد کنید ..." onChange={(e) => setNewPassword(e.target.value)} />
+                            <Input inputtype="input" type="password" autoComplete="on" placeholder="رمز عبور جدید خود را وارد کنید ..." onChange={(e) => setNewPassword(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicConfPassword">
                             <Form.Label>تکرار رمزعبور</Form.Label>
-                            <Form.Control type="password" autoComplete="on" placeholder="بار دیگر رمز عبور جدید خود را وارد کنید ..." onChange={(e) => setConfPassword(e.target.value)} />
+                            <Input inputtype="input" type="password" autoComplete="on" placeholder="بار دیگر رمز عبور جدید خود را وارد کنید ..." onChange={(e) => setConfPassword(e.target.value)} />
                         </Form.Group>
                         <Button className="mt-5" variant="danger" style={{ width: '100%' }} onClick={() => handleResetPassword()}>
                             تغییر رمز عبور

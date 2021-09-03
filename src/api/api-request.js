@@ -1,9 +1,8 @@
-import { getAxiosInstanceApi } from "./api";
+import { instanceAxios } from "./base-api";
 
 // api req type
 export const GetRequestType = (url, callback) => {
-  // const userInfo = useAuthDispatch();
-  getAxiosInstanceApi().get(`RequestType/${url}`)
+  instanceAxios().get(`RequestType/${url}`)
     .then(response => {
       const data = response.data;
       callback(true, data);
@@ -16,9 +15,8 @@ export const GetRequestType = (url, callback) => {
 
 // api req Buyer
 export const RequestBuyerApi = (req, url, callback) => {
-  // const userInfo = useAuthDispatch();
   console.log(JSON.stringify(req));
-  getAxiosInstanceApi()
+  instanceAxios()
     .post(`RequestBuyer/${url}`, JSON.stringify(req))
     .then((response) => {
       const data = response.data;
@@ -33,9 +31,8 @@ export const RequestBuyerApi = (req, url, callback) => {
 
 // api req Letter
 export const RequestLetterApi = (req, url, callback) => {
-  // const userInfo = useAuthDispatch();
   console.log(JSON.stringify(req));
-  getAxiosInstanceApi()
+  instanceAxios()
     .post(`RequestLetter/${url}`, JSON.stringify(req))
     .then((response) => {
       const data = response.data;
