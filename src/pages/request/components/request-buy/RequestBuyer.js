@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { RequestBuyerApi, GetRequestType } from '../../../../api/api-request';
+import { RequestBuyerPostApi, GetRequestType } from '../../../../api/api-request';
 import Input from '../../../../components/UI/Input/Input';
 import SelectList from '../../../../components/UI/Select/SelectList';
 
@@ -34,7 +34,7 @@ const RequestBuyer = () => {
         const error = validateCode(infoBuyerRequest);
         if (error) return console.warn(error);
         // handle Api
-        RequestBuyerApi(infoBuyerRequest, url, (isOK, data) => {
+        RequestBuyerPostApi(infoBuyerRequest, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
         })

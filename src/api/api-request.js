@@ -14,7 +14,7 @@ export const GetRequestType = (url, callback) => {
 }
 
 // api req Buyer
-export const RequestBuyerApi = (req, url, callback) => {
+export const RequestBuyerPostApi = (req, url, callback) => {
   console.log(JSON.stringify(req));
   instanceAxios()
     .post(`RequestBuyer/${url}`, JSON.stringify(req))
@@ -30,7 +30,7 @@ export const RequestBuyerApi = (req, url, callback) => {
 };
 
 // api req Letter
-export const RequestLetterApi = (req, url, callback) => {
+export const RequestLetterPostApi = (req, url, callback) => {
   console.log(JSON.stringify(req));
   instanceAxios()
     .post(`RequestLetter/${url}`, JSON.stringify(req))

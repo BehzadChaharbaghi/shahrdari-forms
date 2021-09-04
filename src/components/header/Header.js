@@ -15,6 +15,8 @@ const Header = () => {
                     <NavDropdown.Item><Link className="link-text" to={"/RequestBuyer"}>درخواست های خریدار</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item><Link className="link-text" to={"/RequestLetter"}>درخواست های نامه وار</Link></NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item><Link className="link-text" to={"/RequestList"}>همه درخواست ها</Link></NavDropdown.Item>
                 </NavDropdown>
             </Nav>
         </Navbar>

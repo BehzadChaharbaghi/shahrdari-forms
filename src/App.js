@@ -13,6 +13,7 @@ import RequestBuyer from './pages/request/components/request-buy/RequestBuyer';
 import RequestLetter from './pages/request/components/request-letter/RequestLetter';
 import ForgetPassword from './pages/forget-password/ForgetPassword';
 import Register from './pages/register/Register';
+import RequestList from './pages/request/components/request-list/RequestList';
 
 // login authentication
 const isLogin = () => !!localStorage.getItem("token")
@@ -51,6 +52,7 @@ const App = () => {
                 <Route path="/ResetPassword" component={ResetPassword} />
                 <Route path="/RequestBuyer" component={RequestBuyer} />
                 <Route path="/RequestLetter" component={RequestLetter} />
+                <Route path="/RequestList" component={RequestList} />
               </Switch>
             </Layout>
           } />

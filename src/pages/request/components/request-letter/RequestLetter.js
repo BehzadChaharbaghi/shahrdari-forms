@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { RequestLetterApi, GetRequestType } from '../../../../api/api-request';
+import { RequestLetterPostApi, GetRequestType } from '../../../../api/api-request';
 
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
@@ -38,7 +38,7 @@ const RequestLetter = () => {
         const error = validateCode(infoLetterRequest);
         if (error) return console.warn(error);
         // handle Api
-        RequestLetterApi(infoLetterRequest, url, (isOK, data) => {
+        RequestLetterPostApi(infoLetterRequest, url, (isOK, data) => {
             if (!isOK) return console.log(data);
             console.log(data);
         })
